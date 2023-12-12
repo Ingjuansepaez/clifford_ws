@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+  <link name="base_link"/>
+
+  <link name="base_footprint">
+    <inertial>
+      <origin xyz="0 0 -0.0003" rpy="0 0 0" />
+      <mass value="0.5" />
+      <inertia  ixx="0.0011072933516694948" ixy="0" ixz="0" iyy="0.0022392243210121506" iyz="0" izz="0.003276402523929809" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford_gazebo/meshes/base_footprint.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford_gazebo/meshes/base_footprint.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="base_footprint">
+    <material>Gazebo/Orange</material>
+    <gravity>1</gravity>
+    <selfCollide>1</selfCollide>
+  </gazebo>
+
+  <joint name="base_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+    <axis xyz="0.0 0.0 0.0"/>
+  </joint>
+</robot>

@@ -1,0 +1,24 @@
+controller_manager:
+  ros__parameters:
+    use_sim_time: true
+    update_rate: 100
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    joint_group_position_controller:
+      type: position_controllers/JointGroupPositionController
+
+joint_group_position_controller:
+  ros__parameters:
+    joints:
+      - back_left_wrist_joint
+      - back_left_leg_joint
+      - back_left_foot_joint
+      - back_right_wrist_joint
+      - back_right_leg_joint
+      - back_right_foot_joint
+      - front_left_wrist_joint
+      - front_left_leg_joint
+      - front_left_foot_joint
+      - front_right_wrist_joint
+      - front_right_leg_joint
+      - front_right_foot_joint
