@@ -1,0 +1,4 @@
+int32 index
+string leg_type
+---
+geometry_msgs/Point point

@@ -1,0 +1,43 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Frecuencia de actualización en Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      joints:
+        - hombro_DA_joint
+        - brazo_DA_joint
+        - muneca_DA_joint
+        - end_effector_DA_joint
+        - hombro_IA_joint
+        - brazo_IA_joint
+        - muneca_IA_joint
+        - end_effector_IA_joint
+        - hombro_DT_joint
+        - brazo_DT_joint
+        - muneca_DT_joint
+        - end_effector_DT_joint
+        - hombro_IT_joint
+        - brazo_IT_joint
+        - muneca_IT_joint
+        - end_effector_IT_joint
+      gains:
+        hombro_DA_joint: {p: 100.0, i: 0.1, d: 10.0}
+        brazo_DA_joint: {p: 80.0, i: 0.1, d: 8.0}
+        muneca_DA_joint: {p: 60.0, i: 0.1, d: 6.0}
+        end_effector_DA_joint: {p: 40.0, i: 0.1, d: 4.0}
+        hombro_IA_joint: {p: 100.0, i: 0.1, d: 10.0}
+        brazo_IA_joint: {p: 80.0, i: 0.1, d: 8.0}
+        muneca_IA_joint: {p: 60.0, i: 0.1, d: 6.0}
+        end_effector_IA_joint: {p: 40.0, i: 0.1, d: 4.0}
+        hombro_DT_joint: {p: 100.0, i: 0.1, d: 10.0}
+        brazo_DT_joint: {p: 80.0, i: 0.1, d: 8.0}
+        muneca_DT_joint: {p: 60.0, i: 0.1, d: 6.0}
+        end_effector_DT_joint: {p: 40.0, i: 0.1, d: 4.0}
+        hombro_IT_joint: {p: 100.0, i: 0.1, d: 10.0}
+        brazo_IT_joint: {p: 80.0, i: 0.1, d: 8.0}
+        muneca_IT_joint: {p: 60.0, i: 0.1, d: 6.0}
+        end_effector_IT_joint: {p: 40.0, i: 0.1, d: 4.0}

@@ -1,0 +1,963 @@
+<?xml version="1.0"?>
+
+<robot name="clifford" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <link name='base_footprint'>
+  </link>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.190"/>
+  </joint>
+  
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.000111409403120713 9.74988395540795E-05 -0.00292600907272473"
+        rpy="0 0 0" />
+      <mass
+        value="0.672153636292049" />
+      <inertia
+        ixx="0.000455915584273383"
+        ixy="6.5406494523548E-19"
+        ixz="-2.31672700327573E-20"
+        iyy="0.00153053682999754"
+        iyz="-3.95330178790306E-11"
+        izz="0.00194619670837473" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="hombro_IA_link">
+    <inertial>
+      <origin
+        xyz="0.0235134560364638 -0.010937437022964 -0.0196061503675679"
+        rpy="0 0 0" />
+      <mass
+        value="0.026193316260987" />
+      <inertia
+        ixx="9.41880883481081E-06"
+        ixy="2.95481233449247E-07"
+        ixz="-1.01990190944249E-14"
+        iyy="7.07803735822788E-06"
+        iyz="4.55867173285886E-14"
+        izz="7.88631718617753E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/hombro_IA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/hombro_IA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hombro_IA_joint"
+    type="revolute">
+    <origin
+      xyz="0.1126 0.089821 -0.02"
+      rpy="0 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hombro_IA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="brazo_IA_link">
+    <inertial>
+      <origin
+        xyz="0.0144889235562905 0.0191532698125823 -0.0193712297728885"
+        rpy="0 0 0" />
+      <mass
+        value="0.0941790668231542" />
+      <inertia
+        ixx="8.49000144315315E-06"
+        ixy="-1.97665089963132E-11"
+        ixz="-7.3597280265899E-10"
+        iyy="1.93206121325771E-05"
+        iyz="-1.21815812711801E-15"
+        izz="2.04322976039185E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/brazo_IA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/brazo_IA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="brazo_IA_joint"
+    type="revolute">
+    <origin
+      xyz="0.0535 0.0071802 -0.021489"
+      rpy="-1.5708 0 -6.1627E-05" />
+    <parent
+      link="hombro_IA_link" />
+    <child
+      link="brazo_IA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="muneca_IA_link">
+    <inertial>
+      <origin
+        xyz="0.0496343193345755 -0.001301825464522 -0.0245593968123461"
+        rpy="0 0 0" />
+      <mass
+        value="0.0722018752264172" />
+      <inertia
+        ixx="1.47122753210995E-05"
+        ixy="3.17044016173006E-07"
+        ixz="2.55182550181365E-06"
+        iyy="2.60715749120681E-05"
+        iyz="-6.24093309783575E-08"
+        izz="1.8150739892905E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/muneca_IA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/muneca_IA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="muneca_IA_joint"
+    type="revolute">
+    <origin
+      xyz="0.0295 0.039 0"
+      rpy="0 0 0.031417" />
+    <parent
+      link="brazo_IA_link" />
+    <child
+      link="muneca_IA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="end_effector_IA_link">
+    <inertial>
+      <origin
+        xyz="0.000363274165537303 -0.00102258317790296 0.0115052088341638"
+        rpy="0 0 0" />
+      <mass
+        value="0.0222928378964913" />
+      <inertia
+        ixx="2.43699406571878E-06"
+        ixy="-4.92990305264524E-10"
+        ixz="1.81431971986691E-08"
+        iyy="3.05614962167684E-06"
+        iyz="1.85745230252956E-08"
+        izz="3.01414157198583E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/end_effector_IA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/end_effector_IA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="end_effector_IA_joint"
+    type="fixed">
+    <origin
+      xyz="0.094724 -0.0017729 -0.028274"
+      rpy="1.5709 0 -1.6022" />
+    <parent
+      link="muneca_IA_link" />
+    <child
+      link="end_effector_IA_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="hombro_IT_link">
+    <inertial>
+      <origin
+        xyz="0.0235134560364641 -0.0109374370229641 -0.0196061503675679"
+        rpy="0 0 0" />
+      <mass
+        value="0.026193316260987" />
+      <inertia
+        ixx="9.41880883481081E-06"
+        ixy="2.95481233449248E-07"
+        ixz="-1.01990192433233E-14"
+        iyy="7.07803735822789E-06"
+        iyz="4.55867163997248E-14"
+        izz="7.88631718617753E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/hombro_IT_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/hombro_IT_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hombro_IT_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0724 0.089821 -0.02"
+      rpy="0 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hombro_IT_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="brazo_IT_link">
+    <inertial>
+      <origin
+        xyz="0.0144889235562906 0.0191532698125823 -0.0193712297728885"
+        rpy="0 0 0" />
+      <mass
+        value="0.0941790668231542" />
+      <inertia
+        ixx="8.49000144315315E-06"
+        ixy="-1.97665089969233E-11"
+        ixz="-7.35972802659196E-10"
+        iyy="1.93206121325771E-05"
+        iyz="-1.21815790564048E-15"
+        izz="2.04322976039185E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/brazo_IT_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/brazo_IT_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="brazo_IT_joint"
+    type="revolute">
+    <origin
+      xyz="0.0535 0.0071802 -0.021489"
+      rpy="-1.5708 0 -6.1627E-05" />
+    <parent
+      link="hombro_IT_link" />
+    <child
+      link="brazo_IT_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="muneca_IT_link">
+    <inertial>
+      <origin
+        xyz="0.0496492066711959 0.000257867435198261 -0.0245624540713623"
+        rpy="0 0 0" />
+      <mass
+        value="0.0722018749270047" />
+      <inertia
+        ixx="1.47038898246934E-05"
+        ixy="-4.02143887810866E-08"
+        ixz="2.5527389263824E-06"
+        iyy="2.60802746881953E-05"
+        iyz="1.7765760282691E-08"
+        izz="1.81504254275919E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/muneca_IT_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/muneca_IT_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="muneca_IT_joint"
+    type="revolute">
+    <origin
+      xyz="0.0295 0.039 0"
+      rpy="0 -6.1627E-05 0" />
+    <parent
+      link="brazo_IT_link" />
+    <child
+      link="muneca_IT_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="end_effector_IT_link">
+    <inertial>
+      <origin
+        xyz="0.000363274234346789 -0.00102258317818567 0.0115052086264711"
+        rpy="0 0 0" />
+      <mass
+        value="0.0222928375970789" />
+      <inertia
+        ixx="2.43699398126927E-06"
+        ixy="-4.92990352199622E-10"
+        ixz="1.81431723518695E-08"
+        iyy="3.0561495390011E-06"
+        iyz="1.85745231162557E-08"
+        izz="3.01414155351909E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/end_effector_IT_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/end_effector_IT_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="end_effector_IT_joint"
+    type="fixed">
+    <origin
+      xyz="0.094731 0.0012034 -0.02828"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="muneca_IT_link" />
+    <child
+      link="end_effector_IT_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="hombro_DA_link">
+    <inertial>
+      <origin
+        xyz="0.0235134560364609 0.0109374370229634 -0.0182185343823528"
+        rpy="0 0 0" />
+      <mass
+        value="0.026193316260987" />
+      <inertia
+        ixx="9.41880883481081E-06"
+        ixy="-2.95481233449249E-07"
+        ixz="1.01990171244334E-14"
+        iyy="7.07803735822787E-06"
+        iyz="4.5586720473838E-14"
+        izz="7.88631718617752E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/hombro_DA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/hombro_DA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hombro_DA_joint"
+    type="revolute">
+    <origin
+      xyz="0.1126 -0.089679 -0.02"
+      rpy="0 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hombro_DA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="brazo_DA_link">
+    <inertial>
+      <origin
+        xyz="0.01448772973003 -0.0191532698125821 -0.0193721226509556"
+        rpy="0 0 0" />
+      <mass
+        value="0.0941790668231541" />
+      <inertia
+        ixx="8.49000139779705E-06"
+        ixy="-1.97665090274244E-11"
+        ixz="-3.56875184333571E-21"
+        iyy="1.93206121325771E-05"
+        iyz="4.02151453168139E-22"
+        izz="2.04322976492746E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/brazo_DA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/brazo_DA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="brazo_DA_joint"
+    type="revolute">
+    <origin
+      xyz="0.0535 -0.0071802 -0.018711"
+      rpy="1.5708 0 0" />
+    <parent
+      link="hombro_DA_link" />
+    <child
+      link="brazo_DA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="muneca_DA_link">
+    <inertial>
+      <origin
+        xyz="0.0496497829302483 -0.00035470592277452 -0.0150690846901394"
+        rpy="0 0 0" />
+      <mass
+        value="0.0722018750469143" />
+      <inertia
+        ixx="1.47052126534342E-05"
+        ixy="1.11282500161982E-07"
+        ixz="-2.55265937043776E-06"
+        iyy="2.60789541143997E-05"
+        iyz="2.97318812420238E-08"
+        izz="1.81504230896977E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/muneca_DA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/muneca_DA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="muneca_DA_joint"
+    type="revolute">
+    <origin
+      xyz="0.0295 -0.039 0"
+      rpy="0 0 0" />
+    <parent
+      link="brazo_DA_link" />
+    <child
+      link="muneca_DA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="end_effector_DA_link">
+    <inertial>
+      <origin
+        xyz="1.69845163286442E-06 -0.0010232921415336 0.0115108794179261"
+        rpy="0 0 0" />
+      <mass
+        value="0.022292837704409" />
+      <inertia
+        ixx="2.43642427668971E-06"
+        ixy="-1.07683907529799E-09"
+        ixz="-1.3012518983549E-11"
+        iyy="3.05614720816841E-06"
+        iyz="1.85524274477235E-08"
+        izz="3.01471349960927E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/end_effector_DA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/end_effector_DA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="end_effector_DA_joint"
+    type="fixed">
+    <origin
+      xyz="0.094739 -0.00081204 -0.012222"
+      rpy="-1.5708 0 1.5708" />
+    <parent
+      link="muneca_DA_link" />
+    <child
+      link="end_effector_DA_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="hombro_DT_link">
+    <inertial>
+      <origin
+        xyz="0.0235134560364609 0.0109374370229633 -0.0182185343823529"
+        rpy="0 0 0" />
+      <mass
+        value="0.026193316260987" />
+      <inertia
+        ixx="9.41880883481081E-06"
+        ixy="-2.95481233449248E-07"
+        ixz="1.01990262722138E-14"
+        iyy="7.07803735822788E-06"
+        iyz="4.55867345176524E-14"
+        izz="7.88631718617752E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/hombro_DT_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/hombro_DT_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hombro_DT_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0724 -0.089679 -0.02"
+      rpy="0 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hombro_DT_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="brazo_DT_link">
+    <inertial>
+      <origin
+        xyz="0.01448772973003 -0.0191532698125822 -0.0193721226509556"
+        rpy="0 0 0" />
+      <mass
+        value="0.0941790668231541" />
+      <inertia
+        ixx="8.49000139779705E-06"
+        ixy="-1.97665090281231E-11"
+        ixz="-3.30460025328384E-21"
+        iyy="1.93206121325771E-05"
+        iyz="1.00723986002513E-22"
+        izz="2.04322976492746E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/brazo_DT_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/brazo_DT_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="brazo_DT_joint"
+    type="revolute">
+    <origin
+      xyz="0.0535 -0.0071802 -0.018711"
+      rpy="1.5708 0 0" />
+    <parent
+      link="hombro_DT_link" />
+    <child
+      link="brazo_DT_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="muneca_DT_link">
+    <inertial>
+      <origin
+        xyz="0.0496497828891557 -0.000354705910040165 -0.0150690846986311"
+        rpy="0 0 0" />
+      <mass
+        value="0.0722018748876746" />
+      <inertia
+        ixx="1.47052126432537E-05"
+        ixy="1.11282513403909E-07"
+        ixz="-2.55265937039197E-06"
+        iyy="2.60789540719781E-05"
+        iyz="2.97318812671455E-08"
+        izz="1.81504230478603E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/muneca_DT_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/muneca_DT_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="muneca_DT_joint"
+    type="revolute">
+    <origin
+      xyz="0.0295 -0.039 0"
+      rpy="0 0 0" />
+    <parent
+      link="brazo_DT_link" />
+    <child
+      link="muneca_DT_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="end_effector_DT_link">
+    <inertial>
+      <origin
+        xyz="1.69848962217056E-06 -0.00102329214168087 0.0115108793111621"
+        rpy="0 0 0" />
+      <mass
+        value="0.0222928375451694" />
+      <inertia
+        ixx="2.43642423426816E-06"
+        ixy="-1.0768391004181E-09"
+        ixz="-1.30257609091736E-11"
+        iyy="3.05614716633103E-06"
+        iyz="1.85524274935083E-08"
+        izz="3.01471348942874E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/end_effector_DT_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://clifford/meshes/end_effector_DT_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="end_effector_DT_joint"
+    type="fixed">
+    <origin
+      xyz="0.094739 -0.00081204 -0.012222"
+      rpy="-1.5708 0 1.5708" />
+    <parent
+      link="muneca_DT_link" />
+    <child
+      link="end_effector_DT_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

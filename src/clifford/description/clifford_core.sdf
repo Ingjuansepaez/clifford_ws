@@ -1,0 +1,734 @@
+<sdf version='1.7'>
+  <model name='clifford'>
+
+    <link name='base_footprint'>
+      <inertial>
+        <pose>0.000111 9.7e-05 0.187074 0 -0 0</pose>
+        <mass>0.672154</mass>
+        <inertia>
+          <ixx>0.000455916</ixx>
+          <ixy>6.54064e-19</ixy>
+          <ixz>-2.20229e-20</ixz>
+          <iyy>0.00153054</iyy>
+          <iyz>-3.9533e-11</iyz>
+          <izz>0.0019462</izz>
+        </inertia>
+      </inertial>
+
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose>0 0 0.19 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+        <pose>0 0 0.19 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='hombro_DA_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.1126 -0.089679 0.17 3.14159 1.57079 3.14159</pose>
+      <parent>base_footprint</parent>
+      <child>hombro_DA_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='hombro_DA_link'>
+      <pose relative_to='hombro_DA_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.023513 0.010937 -0.018219 0 -0 0</pose>
+        <mass>0.0261933</mass>
+        <inertia>
+          <ixx>9.41881e-06</ixx>
+          <ixy>-2.95481e-07</ixy>
+          <ixz>1.0199e-14</ixz>
+          <iyy>7.07804e-06</iyy>
+          <iyz>4.55867e-14</iyz>
+          <izz>7.88632e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='hombro_DA_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='hombro_DA_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/hombro_DA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='brazo_DA_joint' type='revolute'>
+      <pose relative_to='hombro_DA_link'>0.0535 -0.00718 -0.018711 1.5708 -0 0</pose>
+      <parent>hombro_DA_link</parent>
+      <child>brazo_DA_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='brazo_DA_link'>
+      <pose relative_to='brazo_DA_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.014488 -0.019153 -0.019372 0 -0 0</pose>
+        <mass>0.0941791</mass>
+        <inertia>
+          <ixx>8.49e-06</ixx>
+          <ixy>-1.97665e-11</ixy>
+          <ixz>-3.56875e-21</ixz>
+          <iyy>1.93206e-05</iyy>
+          <iyz>4.02151e-22</iyz>
+          <izz>2.04323e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='brazo_DA_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='brazo_DA_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/brazo_DA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='muneca_DA_joint' type='revolute'>
+      <pose relative_to='brazo_DA_link'>0.0295 -0.039 0 0 -0 0</pose>
+      <parent>brazo_DA_link</parent>
+      <child>muneca_DA_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='muneca_DA_link'>
+      <pose relative_to='muneca_DA_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.057571 -0.000462 -0.014156 0 -0 0</pose>
+        <mass>0.0944947</mass>
+        <inertia>
+          <ixx>1.79786e-05</ixx>
+          <ixy>3.71927e-07</ixy>
+          <ixz>-4.74778e-06</ixz>
+          <iyy>4.7976e-05</iyy>
+          <iyz>6.08497e-08</iyz>
+          <izz>4.04156e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='muneca_DA_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='muneca_DA_link_fixed_joint_lump__end_effector_DA_link_collision_1'>
+        <pose>0.094739 -0.000812 -0.012222 -1.5708 0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/end_effector_DA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='muneca_DA_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/muneca_DA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='muneca_DA_link_fixed_joint_lump__end_effector_DA_link_visual_1'>
+        <pose>0.094739 -0.000812 -0.012222 -1.5708 0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/end_effector_DA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='hombro_DT_joint' type='revolute'>
+      <pose relative_to='base_footprint'>-0.0724 -0.089679 0.17 3.14159 1.57079 3.14159</pose>
+      <parent>base_footprint</parent>
+      <child>hombro_DT_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='hombro_DT_link'>
+      <pose relative_to='hombro_DT_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.023513 0.010937 -0.018219 0 -0 0</pose>
+        <mass>0.0261933</mass>
+        <inertia>
+          <ixx>9.41881e-06</ixx>
+          <ixy>-2.95481e-07</ixy>
+          <ixz>1.0199e-14</ixz>
+          <iyy>7.07804e-06</iyy>
+          <iyz>4.55867e-14</iyz>
+          <izz>7.88632e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='hombro_DT_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='hombro_DT_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/hombro_DT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='brazo_DT_joint' type='revolute'>
+      <pose relative_to='hombro_DT_link'>0.0535 -0.00718 -0.018711 1.5708 -0 0</pose>
+      <parent>hombro_DT_link</parent>
+      <child>brazo_DT_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='brazo_DT_link'>
+      <pose relative_to='brazo_DT_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.014488 -0.019153 -0.019372 0 -0 0</pose>
+        <mass>0.0941791</mass>
+        <inertia>
+          <ixx>8.49e-06</ixx>
+          <ixy>-1.97665e-11</ixy>
+          <ixz>-3.3046e-21</ixz>
+          <iyy>1.93206e-05</iyy>
+          <iyz>1.00724e-22</iyz>
+          <izz>2.04323e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='brazo_DT_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='brazo_DT_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/brazo_DT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='muneca_DT_joint' type='revolute'>
+      <pose relative_to='brazo_DT_link'>0.0295 -0.039 0 0 -0 0</pose>
+      <parent>brazo_DT_link</parent>
+      <child>muneca_DT_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='muneca_DT_link'>
+      <pose relative_to='muneca_DT_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.057571 -0.000462 -0.014156 0 -0 0</pose>
+        <mass>0.0944947</mass>
+        <inertia>
+          <ixx>1.79786e-05</ixx>
+          <ixy>3.71927e-07</ixy>
+          <ixz>-4.74778e-06</ixz>
+          <iyy>4.7976e-05</iyy>
+          <iyz>6.08497e-08</iyz>
+          <izz>4.04156e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='muneca_DT_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='muneca_DT_link_fixed_joint_lump__end_effector_DT_link_collision_1'>
+        <pose>0.094739 -0.000812 -0.012222 -1.5708 0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/end_effector_DT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='muneca_DT_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/muneca_DT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='muneca_DT_link_fixed_joint_lump__end_effector_DT_link_visual_1'>
+        <pose>0.094739 -0.000812 -0.012222 -1.5708 0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/end_effector_DT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='hombro_IA_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.1126 0.089821 0.17 3.14159 1.57079 3.14159</pose>
+      <parent>base_footprint</parent>
+      <child>hombro_IA_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='hombro_IA_link'>
+      <pose relative_to='hombro_IA_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.023513 -0.010937 -0.019606 0 -0 0</pose>
+        <mass>0.0261933</mass>
+        <inertia>
+          <ixx>9.41881e-06</ixx>
+          <ixy>2.95481e-07</ixy>
+          <ixz>-1.0199e-14</ixz>
+          <iyy>7.07804e-06</iyy>
+          <iyz>4.55867e-14</iyz>
+          <izz>7.88632e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='hombro_IA_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='hombro_IA_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/hombro_IA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='brazo_IA_joint' type='revolute'>
+      <pose relative_to='hombro_IA_link'>0.0535 0.00718 -0.021489 -1.5708 -0 -6.2e-05</pose>
+      <parent>hombro_IA_link</parent>
+      <child>brazo_IA_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='brazo_IA_link'>
+      <pose relative_to='brazo_IA_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.014489 0.019153 -0.019371 0 -0 0</pose>
+        <mass>0.0941791</mass>
+        <inertia>
+          <ixx>8.49e-06</ixx>
+          <ixy>-1.97665e-11</ixy>
+          <ixz>-7.35973e-10</ixz>
+          <iyy>1.93206e-05</iyy>
+          <iyz>-1.21816e-15</iyz>
+          <izz>2.04323e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='brazo_IA_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='brazo_IA_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/brazo_IA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='muneca_IA_joint' type='revolute'>
+      <pose relative_to='brazo_IA_link'>0.0295 0.039 0 0 -0 0.031417</pose>
+      <parent>brazo_IA_link</parent>
+      <child>muneca_IA_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='muneca_IA_link'>
+      <pose relative_to='muneca_IA_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.057556 -0.001413 -0.025677 0 -0 0</pose>
+        <mass>0.0944947</mass>
+        <inertia>
+          <ixx>1.81132e-05</ixx>
+          <ixy>5.87538e-07</ixy>
+          <ixz>5.24347e-06</ixz>
+          <iyy>4.80965e-05</iyy>
+          <iyz>-9.9502e-08</iyz>
+          <izz>4.04167e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='muneca_IA_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='muneca_IA_link_fixed_joint_lump__end_effector_IA_link_collision_1'>
+        <pose>0.094724 -0.001773 -0.028274 1.5709 -0 -1.6022</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/end_effector_IA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='muneca_IA_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/muneca_IA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='muneca_IA_link_fixed_joint_lump__end_effector_IA_link_visual_1'>
+        <pose>0.094724 -0.001773 -0.028274 1.5709 -0 -1.6022</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/end_effector_IA_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='hombro_IT_joint' type='revolute'>
+      <pose relative_to='base_footprint'>-0.0724 0.089821 0.17 3.14159 1.57079 3.14159</pose>
+      <parent>base_footprint</parent>
+      <child>hombro_IT_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='hombro_IT_link'>
+      <pose relative_to='hombro_IT_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.023513 -0.010937 -0.019606 0 -0 0</pose>
+        <mass>0.0261933</mass>
+        <inertia>
+          <ixx>9.41881e-06</ixx>
+          <ixy>2.95481e-07</ixy>
+          <ixz>-1.0199e-14</ixz>
+          <iyy>7.07804e-06</iyy>
+          <iyz>4.55867e-14</iyz>
+          <izz>7.88632e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='hombro_IT_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='hombro_IT_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/hombro_IT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='brazo_IT_joint' type='revolute'>
+      <pose relative_to='hombro_IT_link'>0.0535 0.00718 -0.021489 -1.5708 -0 -6.2e-05</pose>
+      <parent>hombro_IT_link</parent>
+      <child>brazo_IT_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name='brazo_IT_link'>
+      <pose relative_to='brazo_IT_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.014489 0.019153 -0.019371 0 -0 0</pose>
+        <mass>0.0941791</mass>
+        <inertia>
+          <ixx>8.49e-06</ixx>
+          <ixy>-1.97665e-11</ixy>
+          <ixz>-7.35973e-10</ixz>
+          <iyy>1.93206e-05</iyy>
+          <iyz>-1.21816e-15</iyz>
+          <izz>2.04323e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='brazo_IT_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='brazo_IT_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/brazo_IT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name='muneca_IT_joint' type='revolute'>
+      <pose relative_to='brazo_IT_link'>0.0295 0.039 0 0 -6.2e-05 0</pose>
+      <parent>brazo_IT_link</parent>
+      <child>muneca_IT_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    
+    <link name='muneca_IT_link'>
+      <pose relative_to='muneca_IT_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.05757 0.000395 -0.025681 0 -0 0</pose>
+        <mass>0.0944947</mass>
+        <inertia>
+          <ixx>1.81065e-05</ixx>
+          <ixy>-3.55109e-07</ixy>
+          <ixz>5.24521e-06</ixz>
+          <iyy>4.81035e-05</iyy>
+          <iyz>6.52751e-08</iyz>
+          <izz>4.04158e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='muneca_IT_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='muneca_IT_link_fixed_joint_lump__end_effector_IT_link_collision_1'>
+        <pose>0.094731 0.001203 -0.02828 1.5708 0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/muneca_IT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='muneca_IT_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/muneca_IT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='muneca_IT_link_fixed_joint_lump__end_effector_IT_link_visual_1'>
+        <pose>0.094731 0.001203 -0.02828 1.5708 0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://clifford/meshes/end_effector_IT_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
